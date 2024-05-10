@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Luna Player", "Luna Player\Luna Player.csproj", "{5E55CAB6-EBEA-40EB-AC44-904BA45097E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Luna Player GUI", "Luna Player GUI\Luna Player GUI.csproj", "{C235D5E1-ADD4-48AC-B0AD-FD8BFD64965D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E55CAB6-EBEA-40EB-AC44-904BA45097E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E55CAB6-EBEA-40EB-AC44-904BA45097E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E55CAB6-EBEA-40EB-AC44-904BA45097E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E55CAB6-EBEA-40EB-AC44-904BA45097E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C235D5E1-ADD4-48AC-B0AD-FD8BFD64965D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C235D5E1-ADD4-48AC-B0AD-FD8BFD64965D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C235D5E1-ADD4-48AC-B0AD-FD8BFD64965D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C235D5E1-ADD4-48AC-B0AD-FD8BFD64965D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C80F1350-159E-402C-AE28-43DA3F723467}
+	EndGlobalSection
+EndGlobal
