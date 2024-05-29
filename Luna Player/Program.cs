@@ -1,11 +1,9 @@
 ﻿#nullable disable warnings
 
-using ConsoleTools;
-
 namespace LunaPlayer;
 public static partial class Program
 {
-    public const string Version = "0.4.0";
+    public const string Version = "Pre-Alpha 0.1.2";
     private readonly static Dictionary<string, string> usages = [];
     private readonly static Dictionary<string, Command> commands = [];
     private delegate void Command(string[] param);
@@ -15,13 +13,7 @@ public static partial class Program
         CommandsInit();
         usages.Add("play", "lunaplayer play /path:(path) [/volume:(vol)] [/noui] [/loop[:count]]");
         usages.Add("list-play", "lunaplayer list-play /path:(path)");
-        usages.Add("explorer", "lunaplayer explorer");
-
-        Task.Run(() =>
-        {
-            while (Console.WindowHeight != 1);
-            Environment.Exit(15_6_20);
-        });
+        usages.Add("explorer", "lunaplayer explorer [/path:(path)]");
 
         if (arg.Length == 0)
         {

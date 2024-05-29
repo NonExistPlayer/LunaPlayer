@@ -2,12 +2,14 @@
 using System.Text.Json;
 using TagLib;
 using ConsoleTools.Frames;
+using System.Text;
 using System.Runtime.InteropServices;
 
 #pragma warning disable CS8601
+#pragma warning disable CS8629
 
 namespace LunaPlayer;
-public static class Player
+public sealed class Player
 {
     private static WaveOutEvent? waveOut;
     public static void Play(string filePath, float volume)
@@ -27,7 +29,7 @@ public static class Player
     }
     private static TimeSpan getpos(IWavePosition wave, long ticks)
     {
-        return TimeSpan.FromMilliseconds(ticks / (wave.OutputWaveFormat.Channels * wave.OutputWaveFormat.BitsPerSample / 8) * 1000.0 / wave.OutputWaveFormat.SampleRate);
+        return TimeSpan.FromMilliseconds((ticks / (wave.OutputWaveFormat.Channels * wave.OutputWaveFormat.BitsPerSample / 8)) * 1000.0 / wave.OutputWaveFormat.SampleRate);
     }
     public static void PlayUI(string? filePath, float volume = 1, sbyte loop = 0)
     {
@@ -142,7 +144,6 @@ public static class Player
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.Write($"[{new string('-', (int)(waveOut.Volume * 10)/2)}{new string('_', 5-(int)(waveOut.Volume * 10)/2)}]");
             Console.ResetColor();
-            Thread.Sleep(900);
         }
         Console.CursorVisible = true;
         Console.Clear();
@@ -150,10 +151,14 @@ public static class Player
         if (loop == 0) return;
         if (loop != -1)
             for (byte i = 0; i < loop - 1; i++)
+            {
                 PlayUI(filePath, waveOut.Volume);
+            }
         else
             while (loop == -1)
+            {
                 PlayUI(filePath, waveOut.Volume);
+            }
         waveOut.Dispose();
     }
     public static void ListPlay(string filePath)
