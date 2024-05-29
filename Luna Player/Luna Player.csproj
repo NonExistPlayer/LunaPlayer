@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -10,14 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Program.cs~RF3ef365f.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="NAudio.WaveFormRenderer" Version="2.0.0" />
     <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
     <PackageReference Include="TagLibSharp" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="ConsoleTools">
-      <HintPath>..\ConsoleTools.dll</HintPath>
+      <HintPath>..\..\ConsoleTools\bin\Debug\net8.0\ConsoleTools.dll</HintPath>
     </Reference>
   </ItemGroup>
 
