@@ -1,4 +1,4 @@
-﻿using ConsoleTools.FileExplorer;
+﻿using ConsoleTools;
 
 #pragma warning disable CS8604
 
@@ -47,6 +47,8 @@ partial class Program
                 Player.Play(path, float.Clamp(volume, 0, 1));
             else
                 Player.PlayUI(path, float.Clamp(volume, 0, 1), loop);
+            return;
+
         });
         commands.Add("about", (param) =>
         {
@@ -79,32 +81,30 @@ partial class Program
                         break;
                 }
             }
-            Player.ListPlay(path);
+                Player.ListPlay(path);
         });
         commands.Add("explorer", (param) =>
         {
-            string path = "\\";
             foreach (string p in param)
             {
                 string arg = string.Join(":", p.Split(':')[1..]);
                 switch (p.Split(':')[0])
                 {
-                    case "/path":
-                        if (!Directory.Exists(arg)) Error($"Directory {arg} doesn't exist.");
-                        path = arg;
-                        break;
                     default:
                         Usage("explorer");
                         break;
                 }
+
             }
-            Console.Title = "Choose path to music file";
-            Explorer exp = new(path, ".mp3|.wav");
-            exp.FileSelected += () =>
-            {
-                Player.PlayUI(exp.SelectedFile);
-            };
-            exp.Run();
+            Console.WriteLine("Select the path to the music.");
+            string? path = Terminal.ShowOpenFileDialog("Supported Audio Formats (*.wav, *.mp3, *.aiff)\0*.wav;*.mp3;*.aiff\0" +
+                "MP3 Audio (*.mp3)\0*.mp3\0" +
+                "WAVE Audio (*.wav)\0*.wav\0" +
+                "Audio Interchange File Format (*.aiff)\0*.aiff\0");
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            Console.WriteLine(new string(' ', "Select the path to the music.".Length));
+            if (path == null) return;
+            Player.PlayUI(path);
         });
     }
 }
