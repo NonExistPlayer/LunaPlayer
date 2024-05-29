@@ -10,4 +10,4 @@ For more information: [**nonexistplayer@gmail.com**](https://mail.google.com/mai
 *about* — Shows information about the player and creator.  
 *shell* - Launches a simple player shell.  
 *list-play* — Launches a playlist with **json** format. (in developing)  
-*explorer* - Launches a console file explorer where you need to select an audio file.
+*explorer* - Launches a Windows file dialog where you need to select an audio file.
